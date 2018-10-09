@@ -5,20 +5,20 @@ server = TCPServer.open(8008)
 def read_html
   # TODO:ここでhtmlファイルを読み込む
   begin
-    file_content = File.read('./hello.html')
+     File.read('./hello.html')
   rescue  => e
     puts e.message
   end
 end
 
 def read_image
-    img = File.open('./lib.png', 'rb') {|file| file.read }
+    File.open('./lib.png', 'rb') {|file| file.read }
 end
 
 def read_json
     # ファイルを読み込む
     begin
-      file_content = File.read('./content.json')
+      File.read('./content.json')
     rescue  => e
       puts e.message
     end
@@ -53,7 +53,7 @@ p body
                    # Content-Typeをtext/plainに変更してみる
                    "Content-Type: #{content_type} charset=utf-8",
                    "Content-Length: #{body.length}\r\n\r\n"].join("\r\n")
-    socket.puts body 
+    socket.puts body
 
   p 'socket close'
   socket.close
