@@ -20,6 +20,7 @@ while true
     socket.puts ['HTTP/1.1 200 OK',
                    'Server: liblib',
                    'Content-Type: application/json; charset=utf-8',
+                   'Cache-Control:max-age=10000',
                    "Content-Length: #{body.length}\r\n\r\n"].join("\r\n")
     socket.puts body
   end
